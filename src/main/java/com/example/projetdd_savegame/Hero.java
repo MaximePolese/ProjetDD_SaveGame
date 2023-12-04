@@ -3,22 +3,23 @@ package com.example.projetdd_savegame;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "hero")
 public class Hero {
     @Id
-    @ForeignKey
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private int heroId;
     private String name;
     private String type;
     private int life;
     private int strength;
     private int position;
+//    @OneToOne(mappedBy = "hero")
+//    private Sauvegarde sauvegarde;
 
     public Hero() {
     }
 
     public Hero(int id, String name, String type, int life, int strength, int position) {
-        this.id = id;
+        this.heroId = id;
         this.name = name;
         this.type = type;
         this.life = life;
@@ -26,12 +27,12 @@ public class Hero {
         this.position = position;
     }
 
-    public int getId() {
-        return id;
+    public int getHeroId() {
+        return heroId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setHeroId(int heroId) {
+        this.heroId = heroId;
     }
 
     public String getName() {
@@ -74,15 +75,24 @@ public class Hero {
         this.position = position;
     }
 
-    @Override
-    public String toString() {
-        return "Hero{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", type='" + type + '\'' +
-                ", life=" + life +
-                ", strength=" + strength +
-                ", position=" + position +
-                '}';
-    }
+//    public Sauvegarde getSauvegarde() {
+//        return sauvegarde;
+//    }
+//
+//    public void setSauvegarde(Sauvegarde sauvegarde) {
+//        this.sauvegarde = sauvegarde;
+//    }
+
+//    @Override
+//    public String toString() {
+//        return "Hero{" +
+//                "heroId=" + heroId +
+//                ", name='" + name + '\'' +
+//                ", type='" + type + '\'' +
+//                ", life=" + life +
+//                ", strength=" + strength +
+//                ", position=" + position +
+//                ", sauvegarde=" + sauvegarde +
+//                '}';
+//    }
 }

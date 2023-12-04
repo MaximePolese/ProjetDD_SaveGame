@@ -42,9 +42,13 @@ public class SauvegardeController {
     }
 
     @PostMapping("/sauvegardes")
-    public Sauvegarde sauvegarderUnePartie(Sauvegarde sauvegarde){
+    public Sauvegarde sauvegarderUnePartie(Sauvegarde sauvegarde) {
         return dao.save(sauvegarde);
     }
+
+//    @PostMapping("/encours")
+//
+//    @GetMapping("/encours")
 
 
 //    @Override
