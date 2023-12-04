@@ -1,24 +1,24 @@
 package com.example.projetdd_savegame;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
+@Entity
 public class Sauvegarde {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    private List<Sauvegarde> sauvegardes = new ArrayList<>();
+    private Hero myHero;
+
+    private Board myBoard;
 
     public Sauvegarde() {
     }
 
-    public Sauvegarde(int id) {
+    public Sauvegarde(int id, Hero hero, Board board) {
         this.id = id;
+        this.myHero = hero;
+        this.myBoard = board;
     }
 
     public int getId() {
@@ -29,10 +29,28 @@ public class Sauvegarde {
         this.id = id;
     }
 
+    public Hero getMyHero() {
+        return myHero;
+    }
+
+    public void setMyHero(Hero myHero) {
+        this.myHero = myHero;
+    }
+
+    public Board getMyBoard() {
+        return myBoard;
+    }
+
+    public void setMyBoard(Board myBoard) {
+        this.myBoard = myBoard;
+    }
+
     @Override
     public String toString() {
         return "Sauvegarde{" +
                 "id=" + id +
+                ", myHero=" + myHero +
+                ", myBoard=" + myBoard +
                 '}';
     }
 }

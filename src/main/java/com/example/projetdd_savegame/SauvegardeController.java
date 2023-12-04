@@ -46,4 +46,14 @@ public class SauvegardeController {
         return dao.save(sauvegarde);
     }
 
+
+//    @Override
+//    public Sauvegarde findById(int id) {
+//        return restTemplate.getForObject("http://ProjetDD_SaveGame/sauvegardes/{id}", Sauvegarde.class);
+//    }
+//
+//    @Override
+//    public Sauvegarde save(Sauvegarde sauvegarde) {
+//        return restTemplate.postForObject("http://ProjetDD_SaveGame/sauvegardes", sauvegarde, Sauvegarde.class);
+//    }
 }
