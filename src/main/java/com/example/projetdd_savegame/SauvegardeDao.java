@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 @Repository
-public interface DAO extends JpaRepository<Sauvegarde, Integer> {
+public interface SauvegardeDao extends JpaRepository<Sauvegarde, Integer> {
     List<Sauvegarde> findAll();
 
     Sauvegarde findById(int id);

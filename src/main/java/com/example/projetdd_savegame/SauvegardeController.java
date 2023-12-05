@@ -9,20 +9,20 @@ import java.util.Objects;
 @RestController
 public class SauvegardeController {
 
-    private DAO dao;
+    private final SauvegardeDao sauvegardeDao;
 
-    public SauvegardeController(DAO dao) {
-        this.dao = dao;
+    public SauvegardeController(SauvegardeDao sauvegardeDao) {
+        this.sauvegardeDao = sauvegardeDao;
     }
 
-    @GetMapping("/sauvegarges")
+    @GetMapping("/sauvegardes")
     public List<Sauvegarde> listeDesSauvegardes() {
-        return dao.findAll();
+        return sauvegardeDao.findAll();
     }
 
     @GetMapping("/sauvegardes/{id}")
     public ResponseEntity<Sauvegarde> chargerUneSauvegarde(@PathVariable int id) {
-        Sauvegarde save = dao.findById(id);
+        Sauvegarde save = sauvegardeDao.findById(id);
         if (Objects.isNull(save)) {
             return ResponseEntity.notFound().build();
         } else {
@@ -32,18 +32,18 @@ public class SauvegardeController {
 
     @DeleteMapping(value = "/sauvegardes/{id}")
     public ResponseEntity<Sauvegarde> supprimerUneSauvegarde(@PathVariable int id) {
-        Sauvegarde save = dao.findById(id);
+        Sauvegarde save = sauvegardeDao.findById(id);
         if (Objects.isNull(save)) {
             return ResponseEntity.notFound().build();
         } else {
-            dao.deleteById(id);
+            sauvegardeDao.deleteById(id);
         }
         return ResponseEntity.ok().build();
     }
 
     @PostMapping("/sauvegardes")
-    public Sauvegarde sauvegarderUnePartie(Sauvegarde sauvegarde) {
-        return dao.save(sauvegarde);
+    public Sauvegarde sauvegarderUnePartie(@RequestBody Sauvegarde sauvegarde) {
+        return sauvegardeDao.save(sauvegarde);
     }
 
 //    @PostMapping("/encours")

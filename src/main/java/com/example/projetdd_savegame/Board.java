@@ -6,21 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "board")
 public class Board {
     @Id
     private int boardId;
-//    @OneToOne(mappedBy = "board")
-//    private Sauvegarde sauvegarde;
 
-    //private List<Case> board;
+//    private ArrayList<Case> board;
 
     public Board() {
     }
 
     public Board(int id) {
         this.boardId = id;
-        //this.board = new ArrayList<Case>(64);
+//        this.board = new ArrayList<Case>(64);
     }
 
     public int getBoardId() {

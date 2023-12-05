@@ -3,7 +3,6 @@ package com.example.projetdd_savegame;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "hero")
 public class Hero {
     @Id
     private int heroId;
@@ -12,8 +11,6 @@ public class Hero {
     private int life;
     private int strength;
     private int position;
-//    @OneToOne(mappedBy = "hero")
-//    private Sauvegarde sauvegarde;
 
     public Hero() {
     }
@@ -75,24 +72,15 @@ public class Hero {
         this.position = position;
     }
 
-//    public Sauvegarde getSauvegarde() {
-//        return sauvegarde;
-//    }
-//
-//    public void setSauvegarde(Sauvegarde sauvegarde) {
-//        this.sauvegarde = sauvegarde;
-//    }
-
-//    @Override
-//    public String toString() {
-//        return "Hero{" +
-//                "heroId=" + heroId +
-//                ", name='" + name + '\'' +
-//                ", type='" + type + '\'' +
-//                ", life=" + life +
-//                ", strength=" + strength +
-//                ", position=" + position +
-//                ", sauvegarde=" + sauvegarde +
-//                '}';
-//    }
+    @Override
+    public String toString() {
+        return "Hero{" +
+                "heroId=" + heroId +
+                ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", life=" + life +
+                ", strength=" + strength +
+                ", position=" + position +
+                '}';
+    }
 }

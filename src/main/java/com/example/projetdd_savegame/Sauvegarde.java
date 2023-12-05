@@ -3,11 +3,10 @@ package com.example.projetdd_savegame;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "sauvegarde")
 public class Sauvegarde {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int saveId;
+    private int id;
     @OneToOne
     @JoinColumn(name = "heroId",  referencedColumnName = "heroId")
     private Hero myHero;
@@ -19,17 +18,17 @@ public class Sauvegarde {
     }
 
     public Sauvegarde(int id, Hero hero, Board board) {
-        this.saveId = id;
+        this.id = id;
         this.myHero = hero;
         this.myBoard = board;
     }
 
-    public int getSaveId() {
-        return saveId;
+    public int getId() {
+        return id;
     }
 
-    public void setSaveId(int id) {
-        this.saveId = id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Hero getMyHero() {
@@ -51,7 +50,7 @@ public class Sauvegarde {
     @Override
     public String toString() {
         return "Sauvegarde{" +
-                "id=" + saveId +
+                "id=" + id +
                 ", myHero=" + myHero +
                 ", myBoard=" + myBoard +
                 '}';
