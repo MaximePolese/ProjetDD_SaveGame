@@ -43,6 +43,7 @@ public class SauvegardeController {
 
     @PostMapping("/sauvegardes")
     public Sauvegarde sauvegarderUnePartie(@RequestBody Sauvegarde sauvegarde) {
+        System.out.println(sauvegarde);
         return sauvegardeDao.save(sauvegarde);
     }
 
@@ -51,13 +52,5 @@ public class SauvegardeController {
 //    @GetMapping("/encours")
 
 
-//    @Override
-//    public Sauvegarde findById(int id) {
-//        return restTemplate.getForObject("http://ProjetDD_SaveGame/sauvegardes/{id}", Sauvegarde.class);
-//    }
 //
-//    @Override
-//    public Sauvegarde save(Sauvegarde sauvegarde) {
-//        return restTemplate.postForObject("http://ProjetDD_SaveGame/sauvegardes", sauvegarde, Sauvegarde.class);
-//    }
 }

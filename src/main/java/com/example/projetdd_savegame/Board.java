@@ -1,5 +1,7 @@
 package com.example.projetdd_savegame;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -8,16 +10,20 @@ import java.util.List;
 @Entity
 public class Board {
     @Id
+    @Column(name = "boardId")
     private int boardId;
 
-//    private ArrayList<Case> board;
+    @Transient
+    private List<Case> _board;
+
+    private String board;
 
     public Board() {
     }
 
     public Board(int id) {
         this.boardId = id;
-//        this.board = new ArrayList<Case>(64);
+        this._board = new ArrayList<Case>(64);
     }
 
     public int getBoardId() {
@@ -28,19 +34,21 @@ public class Board {
         this.boardId = boardId;
     }
 
-//    public ArrayList<Case> getBoard() {
-//        return board;
-//    }
-//
-//    public void setBoard(ArrayList<Case> board) {
-//        this.board = board;
-//    }
-//
-//    @Override
-//    public String toString() {
-//        return "Board{" +
-//                "boardId=" + boardId +
-//                ", board=" + board +
-//                '}';
-//    }
+    public List<Case> getBoard() {
+        return _board;
+    }
+
+    public void setBoard(List<Case> board) throws JsonProcessingException {
+        this._board = board;
+        final ObjectMapper mapper = new ObjectMapper();
+        this.board = mapper.writeValueAsString(board);
+    }
+
+    @Override
+    public String toString() {
+        return "Board{" +
+                "boardId=" + boardId +
+                ", board=" + board +
+                '}';
+    }
 }

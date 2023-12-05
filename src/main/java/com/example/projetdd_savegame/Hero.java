@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 @Entity
 public class Hero {
     @Id
+    @Column(name = "heroId")
     private int heroId;
     private String name;
     private String type;
