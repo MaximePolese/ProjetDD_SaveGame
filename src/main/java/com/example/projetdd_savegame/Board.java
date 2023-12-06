@@ -10,28 +10,26 @@ import java.util.List;
 @Entity
 public class Board {
     @Id
-    @Column(name = "boardId")
-    private int boardId;
-
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int board_id;
     @Transient
     private List<Case> _board;
-
     private String board;
 
     public Board() {
     }
 
     public Board(int id) {
-        this.boardId = id;
+        this.board_id = id;
         this._board = new ArrayList<Case>(64);
     }
 
-    public int getBoardId() {
-        return boardId;
+    public int getBoard_id() {
+        return board_id;
     }
 
-    public void setBoardId(int boardId) {
-        this.boardId = boardId;
+    public void setBoard_id(int boardId) {
+        this.board_id = boardId;
     }
 
     public List<Case> getBoard() {
@@ -47,7 +45,7 @@ public class Board {
     @Override
     public String toString() {
         return "Board{" +
-                "boardId=" + boardId +
+                "boardId=" + board_id +
                 ", board=" + board +
                 '}';
     }

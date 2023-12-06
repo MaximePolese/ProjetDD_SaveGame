@@ -8,10 +8,10 @@ public class Sauvegarde {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @OneToOne
-    @JoinColumn(name = "heroId",  referencedColumnName = "heroId")
+    @JoinColumn(name = "hero_id",  referencedColumnName = "hero_id")
     private Hero myHero;
     @OneToOne
-    @JoinColumn(name = "boardId",  referencedColumnName = "boardId")
+    @JoinColumn(name = "board_id",  referencedColumnName = "board_id")
     private Board myBoard;
 
     public Sauvegarde() {

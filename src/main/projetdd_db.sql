@@ -21,14 +21,14 @@ USE `projetdd_db` ;
 -- Table `projetdd_db`.`hero`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `projetdd_db`.`hero` (
-                                                    `heroId` INT NOT NULL,
+                                                    `hero_id` INT NOT NULL,
                                                     `name` VARCHAR(45) NULL,
     `type` VARCHAR(45) NULL,
     `life` INT NULL,
     `strength` INT NULL,
     `position` INT NULL,
-    PRIMARY KEY (`heroId`),
-    UNIQUE INDEX `id_UNIQUE` (`heroId` ASC) VISIBLE)
+    PRIMARY KEY (`hero_id`),
+    UNIQUE INDEX `id_UNIQUE` (`hero_id` ASC))
     ENGINE = InnoDB;
 
 
@@ -36,10 +36,10 @@ CREATE TABLE IF NOT EXISTS `projetdd_db`.`hero` (
 -- Table `projetdd_db`.`board`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `projetdd_db`.`board` (
-                                                     `boardId` INT NOT NULL,
+                                                     `board_id` INT NOT NULL,
                                                      `board` JSON NULL,
-                                                     PRIMARY KEY (`boardId`),
-    UNIQUE INDEX `id_UNIQUE` (`boardId` ASC) VISIBLE)
+                                                     PRIMARY KEY (`board_id`),
+    UNIQUE INDEX `id_UNIQUE` (`board_id` ASC) VISIBLE)
     ENGINE = InnoDB;
 
 
@@ -48,20 +48,20 @@ CREATE TABLE IF NOT EXISTS `projetdd_db`.`board` (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `projetdd_db`.`sauvegarde` (
                                                           `id` INT NOT NULL AUTO_INCREMENT,
-                                                          `heroId` INT NOT NULL,
-                                                          `boardId` INT NOT NULL,
+                                                          `hero_id` INT NOT NULL,
+                                                          `board_id` INT NOT NULL,
                                                           PRIMARY KEY (`id`),
     UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
-    INDEX `fk_sauvegarde_hero_idx` (`heroId` ASC) VISIBLE,
-    INDEX `fk_sauvegarde_board1_idx` (`boardId` ASC) VISIBLE,
+    INDEX `fk_sauvegarde_hero_idx` (`hero_id` ASC) VISIBLE,
+    INDEX `fk_sauvegarde_board1_idx` (`board_id` ASC) VISIBLE,
     CONSTRAINT `fk_sauvegarde_hero`
-    FOREIGN KEY (`heroId`)
-    REFERENCES `projetdd_db`.`hero` (`heroId`)
+    FOREIGN KEY (`hero_id`)
+    REFERENCES `projetdd_db`.`hero` (`hero_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
     CONSTRAINT `fk_sauvegarde_board1`
-    FOREIGN KEY (`boardId`)
-    REFERENCES `projetdd_db`.`board` (`boardId`)
+    FOREIGN KEY (`board_id`)
+    REFERENCES `projetdd_db`.`board` (`board_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
     ENGINE = InnoDB;

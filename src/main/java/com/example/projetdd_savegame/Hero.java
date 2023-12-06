@@ -5,8 +5,8 @@ import jakarta.persistence.*;
 @Entity
 public class Hero {
     @Id
-    @Column(name = "heroId")
-    private int heroId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int hero_id;
     private String name;
     private String type;
     private int life;
@@ -17,7 +17,7 @@ public class Hero {
     }
 
     public Hero(int id, String name, String type, int life, int strength, int position) {
-        this.heroId = id;
+        this.hero_id = id;
         this.name = name;
         this.type = type;
         this.life = life;
@@ -25,12 +25,12 @@ public class Hero {
         this.position = position;
     }
 
-    public int getHeroId() {
-        return heroId;
+    public int getHero_id() {
+        return hero_id;
     }
 
-    public void setHeroId(int heroId) {
-        this.heroId = heroId;
+    public void setHero_id(int heroId) {
+        this.hero_id = heroId;
     }
 
     public String getName() {
@@ -76,7 +76,7 @@ public class Hero {
     @Override
     public String toString() {
         return "Hero{" +
-                "heroId=" + heroId +
+                "hero_id=" + hero_id +
                 ", name='" + name + '\'' +
                 ", type='" + type + '\'' +
                 ", life=" + life +
