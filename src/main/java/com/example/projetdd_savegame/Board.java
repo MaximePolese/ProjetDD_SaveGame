@@ -37,7 +37,7 @@ public class Board {
     public String toString() {
         return "Board{" +
                 "id=" + id +
-                ", board='" + board + '\'' +
+                ", board='" + board +
                 '}';
     }
 }
