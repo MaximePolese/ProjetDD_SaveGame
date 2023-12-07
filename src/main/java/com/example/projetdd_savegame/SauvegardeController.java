@@ -1,5 +1,7 @@
 package com.example.projetdd_savegame;
 
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,7 +10,8 @@ import java.util.Objects;
 
 @RestController
 public class SauvegardeController {
-
+    @Autowired
+    private ModelMapper modelMapper;
     private final SauvegardeDao sauvegardeDao;
 
     public SauvegardeController(SauvegardeDao sauvegardeDao) {
